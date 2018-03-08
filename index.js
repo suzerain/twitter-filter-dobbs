@@ -79,7 +79,7 @@ async function findSpammersMentioning(mention) {
 				// `imageA` and `imageB` can be either Strings (file path on node.js,
 				// public url on Browsers) or Buffers
 				imageA: accountImageBuffer,
-				imageB: userImageBuffer,
+				imageB: accountImageBuffer,
 
 				// Needs to be one of Rembrandt.THRESHOLD_PERCENT or Rembrandt.THRESHOLD_PIXELS
 				thresholdType: Rembrandt.THRESHOLD_PERCENT,
@@ -99,7 +99,7 @@ async function findSpammersMentioning(mention) {
 		
 			rembrandt.compare()
 				.then(function(result){
-					scoreImage = result.percentageDifference; // high is more scammy
+					scoreImage = 1 - result.percentageDifference; // high percentageDifference is less scammy
 					//console.log('Passed:', result.passed)
 					//console.log('Pixel Difference:', result.differences, 'Percentage Difference', result.percentageDifference, '%')
 					//console.log('Composition image buffer:', result.compositionImage)
