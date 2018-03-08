@@ -26,10 +26,10 @@ request.get(ACCOUNT_IMAGE, function (err, res, body) {
 
 const stringSimilarity = require('string-similarity');
 const Rembrandt = require('rembrandt/build/node');
-const MIN_SCAM_SCORE = 15;
+const MIN_SCAM_SCORE = 15; // should probably be a value in the vicinity of 60? set really low so something is returned.
 const SCORE_WEIGHT_NAME = 40;
 const SCORE_WEIGHT_IMAGE = 40;
-const SCORE_WEIGHT_KEYWORDS = 20;
+const SCORE_WEIGHT_KEYWORDS = 20; // this one is most questionable
 
 
 process.on('unhandledRejection', (err) => {
